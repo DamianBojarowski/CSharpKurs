@@ -6,38 +6,62 @@ namespace Hello
     {
         static void Main(string[] args)
         {
-            //string imie0 = args[0];
-            //string imie1 = args[1];
-            //Console.WriteLine("Witaj " + imie0 + " i ty " + imie1);
-            //Console.WriteLine("Dzisiejsza data: " + DateTime.Now);
+            Console.Write("Wpisz swoje imie: ");
+            string imie = Console.ReadLine();
 
-            int cyfra = 0;
-            foreach (var imie in args)
+            Console.WriteLine("Witaj " + imie);
+
+            int wiek=1;
+            //wiek = int.Parse(Console.ReadLine());
+            bool result_wiek = false;
+
+            while (result_wiek!=true)
             {
-                
-                cyfra = cyfra + 1;
-                //Console.WriteLine("Witaj " + imie);
-                
+                Console.Write("Wpisz swój wiek: ");
+                result_wiek = int.TryParse(Console.ReadLine(), out wiek);
+
+                if (wiek<0)
+                {
+                    result_wiek = false;
+                }
+                else if (wiek>120)
+                {
+                    result_wiek = false;
+                }
+
+                if (result_wiek)
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine("Podales zly wiek");
+                }
             }
 
-            string osoby = "";
-            string ilosc = "";
-            if (cyfra == 1)
+
+
+
+            if (wiek > 17)
             {
-                osoby = "Witaj " + args[0];
-                ilosc = "Jesteś sam";
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Jesteś pełnoletni");
             }
-            if (cyfra == 2)
+            else
             {
-                osoby = "Witaj " + args[0] + " i " + args[1];
-                ilosc = "Jest was dwóch";
+                Console.WriteLine("Jesteś zbyt młody");
             }
 
-            Console.WriteLine("...");
-            Console.WriteLine(osoby);
-            Console.WriteLine(ilosc);
 
+
+
+
+
+
+
+
+            Console.ReadKey();
         }
-    }
 
+    }
 }
